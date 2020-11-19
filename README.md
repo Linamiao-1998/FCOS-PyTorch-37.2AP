@@ -91,17 +91,25 @@ thanks to [@VectXmy](https://github.com/VectXmy), I referenced some codes.
 (1) download resnet50.pth (link:https://download.pytorch.org/models/resnet50-19c8e357.pth)
     put Resnet.pth into the checkpoint folder
     Modify resnet.py(path: model/backbone/resnet.py), def resnet_50  model.load_state_dict(torch.load('E:/pytorchdebug/FCOS_pytorch-          37.2AP/checkpoint/resnet50.pth'),strict=False)
+
 (2) Modify voc_dataset.py(path: datasets/voc_dataset.py), add "asteroid", "satellite", "astorid_yellow" to class VOCDataset CLASSES_NAME
     Modify Main root_dir 'D:/Data/voc2007'
+
 (3) Modify train_voc.py main 
     batch_size to 2
     n_cpu to 1
     n_gpu to 0,1,2
     root_dir to D:/Data/VOC2007
     torch.save(model.state_dict(),"E:/pytorchdebug/FCOS-Pytorch-37.2.AP/checkpoint/model_{}.pth".format(epoch+1))
+    
+    
+    
 (4) Modify eval_voc.py
     main root_dir="D:/Data/VOC2007"
     model.load_state_dict(torch.load("E:/pytorchdebug/FCOS-Pytorch-37.2.AP/checkpoint/voc_77.8.pth)
+    
+    
+    
 (5) Modify detect.py
     main model.load_state_dict(torch.load("E:/pytorchdebug/FCOS-Pytorch-37.2.AP/checkpoint/voc_77.8.pth)
     root="E:/pytorchdebug/FCOS-Pytorch-37.2.AP/test_images/"
